@@ -18,7 +18,7 @@ export class HtmlImageComponent implements OnChanges {
 
     if (changes.image && changes.image.currentValue && changes.image.currentValue.cloneNode) {
       this.elementRef.nativeElement.appendChild(
-        (<HTMLImageElement>changes.image.currentValue).cloneNode()
+        (changes.image.currentValue as HTMLImageElement).cloneNode()
       );
     }
   }

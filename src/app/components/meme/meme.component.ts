@@ -18,10 +18,13 @@ export class MemeComponent implements OnInit {
     this.memeservice.getMemes().subscribe(res => {
       this.memeData = res;
 
-      console.log(this.memeData);
+      const { memes } = this.memeData.data;
+      this.currentMeme = memes[(Math.round(Math.random() * memes.length))];
+      console.log('current meme:', this.currentMeme);
     });
 
-    // this.currentMeme = this.memeData[]
+
+
   }
 
 }
