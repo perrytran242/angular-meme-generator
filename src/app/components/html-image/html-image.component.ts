@@ -1,6 +1,8 @@
 import {
   Component,
-  OnChanges, } from '@angular/core';
+  OnChanges,
+  ElementRef,
+  Input} from '@angular/core';
 
 @Component({
   selector: 'app-html-image',
@@ -8,10 +10,16 @@ import {
   styleUrls: ['./html-image.component.scss']
 })
 export class HtmlImageComponent implements OnChanges {
-
-  constructor() { }
+  @Input() image;
+  constructor(private elementRef: ElementRef) { }
 
   ngOnChanges(changes) {
-  }
+    this.elementRef.nativeElement.innerHTML = '';
 
+    if (changes.image && changes.image.currentValue && changes.image.currentValue.cloneNode) {
+      this.elementRef.nativeElement.appendChild(
+        (<HTMLImageElement>changes.image.currentValue).cloneNode()
+      );
+    }
+  }
 }

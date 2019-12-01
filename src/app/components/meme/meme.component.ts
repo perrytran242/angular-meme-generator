@@ -8,6 +8,7 @@ import { MemeService } from 'src/app/services/meme.service';
 })
 export class MemeComponent implements OnInit {
   memeData;
+  currentMeme;
 
   constructor(
     private memeservice: MemeService
@@ -19,6 +20,8 @@ export class MemeComponent implements OnInit {
 
       console.log(this.memeData);
     });
+
+    // this.currentMeme = this.memeData[]
   }
 
 }
