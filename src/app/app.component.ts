@@ -16,9 +16,5 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.memeservice.getMemes().subscribe( res => {
-      const { memes } = res.data;
-      this.memes = memes;
-    });
   }
 }
