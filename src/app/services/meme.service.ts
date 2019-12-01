@@ -5,14 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MemeService {
-
+  memeSubscription;
   constructor(
     private http: HttpClient
   ) {}
 
   getMemes() {
-    this.http.get('https://api.imgflip.com/get_memes').subscribe( res => {
-      console.log(res);
-    });
+    return this.http.get('https://api.imgflip.com/get_memes');
   }
 }

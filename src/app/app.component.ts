@@ -7,6 +7,7 @@ import { MemeService } from './services/meme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  memes;
 
   constructor(
     private memeservice: MemeService
@@ -15,5 +16,9 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.memeservice.getMemes().subscribe( res => {
+      const { memes } = res.data;
+      this.memes = memes;
+    });
   }
 }
